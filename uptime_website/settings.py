@@ -130,6 +130,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'south',
+    'uptimes',
+    'registration',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -160,3 +163,7 @@ LOGGING = {
         },
     }
 }
+
+#
+# Django-registration settings
+ACCOUNT_ACTIVATION_DAYS = 1 # One-week activation window; you may, of course, use a different value.
