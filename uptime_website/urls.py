@@ -35,6 +35,7 @@ Django-registration plugins
 '''
 urlpatterns += patterns('', 
     # registration urls
+    # url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
     url(r'^accounts/', include('registration.backends.default.urls')),
 )
 
