@@ -26,8 +26,8 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
-# Static files
-static*
+# Generated Static files
+static/
 
 # SQlite DB
 *.sqlite*

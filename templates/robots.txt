@@ -1,0 +1,6 @@
+# robots.txt generated at http://www.mcanerin.com
+User-agent: Googlebot
+Disallow: 
+User-agent: *
+Disallow: 
+Sitemap: http://www.yoursite.com/sitemap.gz

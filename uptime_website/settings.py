@@ -167,3 +167,14 @@ LOGGING = {
 #
 # Django-registration settings
 ACCOUNT_ACTIVATION_DAYS = 1 # One-week activation window; you may, of course, use a different value.
+
+#
+# Email settings
+#
+EMAIL_HOST = 'localhost'
+DEFAULT_FROM_EMAIL = 'noreply@localhost'
+
+
+# Default redirection after login
+# 
+LOGIN_REDIRECT_URL = '/'

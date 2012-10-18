@@ -1,0 +1,10 @@
+/* TEAM */
+Creator: Dominick Rivard.
+Site: dominick.rivard at gmail dot com, www.drivard.com.
+Location: Montreal, Canada.
+
+/* SITE */
+Last update: 2012/10/05
+Standards: Python (Pep8), We are Humans (humanstxt.org)
+Components: 
+Software: Debian Squeeze, Notepad++, OpenVZ
