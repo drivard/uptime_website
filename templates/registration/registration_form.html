@@ -1,1 +1,13 @@
-registration_form.html
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <form method="post" action=".">
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">
+            <i class="icon-user icon-white"></i>
+            &nbsp;{% trans 'Register' %}
+        </button>
+        {% csrf_token %}
+    </form>
+{% endblock %}

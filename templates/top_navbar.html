@@ -1,3 +1,4 @@
+{% load i18n %}
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
@@ -9,30 +10,41 @@
             <a class="brand orange" href="/">Uptimes</a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
-                    <li class="active"><a href="/">Home</a></li>
-                    <li><a href="/getstarted/">Get started</a></li>
+                    <li class="active"><a href="/">{% trans "Home" %}</a></li>
+                    <li><a href="/getstarted/">{% trans "Get started" %}</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stats<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "Stats" %}<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li class="nav-header">Uptimes</li>
-                            <li><a href="#">Numero Uno</a></li>
-                            <li><a href="#">Top 25</a></li>
+                            <li><a href="#">{% trans "Numero Uno" %}</a></li>
+                            <li><a href="#">{% trans "Top 25" %}</a></li>
                             <!-- <li class="divider"></li> -->
-                            <li class="nav-header">Distribution</li>
-                            <li><a href="#">Top 5</a></li>
-                            <li><a href="#">...</a></li>
+                            <li class="nav-header">{% trans "Distribution" %}</li>
+                            <li><a href="#">{% trans "Top 5" %}</a></li>
+                            <li><a href="#">{% trans "..." %}</a></li>
                             <!-- <li class="divider"></li> -->
                         </ul>
                     </li>
-                    <li><a href="/about/">About</a></li>
-                    <li><a href="/contact/">Contact</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li><a href="/settings/">{% trans "Account" %}</a></li>
+                    {% endif %}
+                    <li><a href="/contact/">{% trans "Contact" %}</a></li>
+                    <li><a href="/about/">{% trans "About" %}</a></li>
                 </ul>
-                <form class="navbar-form pull-right">
-                    <input class="span2" type="text" placeholder="Email" />
-                    <input class="span2" type="password" placeholder="Password" />
-                    <button type="submit" class="btn btn-warning"><i class="icon-user icon-white"></i>&nbsp;Sign in</button>
-                    <a href="/accounts/register/" class="btn btn-success"><i class="icon-user icon-white"></i>&nbsp;Register</a>
+                {% if request.user.is_authenticated %}
+                <form class="navbar-form pull-right" method="post" action="/accounts/logout/">
+                    <button type="submit" class="btn btn-danger"><i class="icon-user icon-white"></i>&nbsp;{% trans "Logout" %}</button>
+                    {% csrf_token %}
                 </form>
+                {% else %}
+                <form class="navbar-form pull-right" method="post" action="/accounts/login/">
+                    <input name="username" class="span2" type="text" placeholder="Username" />
+                    <input name="password" class="span2" type="password" placeholder="Password" />
+                    <button type="submit" class="btn btn-warning"><i class="icon-user icon-white"></i>&nbsp;{% trans "Log in" %}</button>
+                    <a href="/accounts/register/" class="btn btn-success"><i class="icon-user icon-white"></i>&nbsp;{% trans "Register" %}</a>
+                    {% csrf_token %}
+                </form>
+                {% endif %}
             </div>
         </div>
     </div>
