@@ -2,16 +2,52 @@
 {% load i18n %}
 <footer>
     <div class="bs-docs-grid">
-        <div class="row row-fluid"> 
-            <div class="span12 offset11">
-                <p>&copy;&nbsp;{% trans "Company" %}&nbsp;{% year %}</p>
+        <div class="row row-fluid offset2"> 
+            <div class="span2">
+                <h4>{% trans "Information" %}</h4>
+                <p>&copy;&nbsp;{% year %}&nbsp;{% domain %}</p>
+                <p>
+                    <a href="/contact/">{% trans "Contact" %}</a>
+                </p>
+                <p>
+                    <a href="/about/">{% trans "About" %}</a>
+                </p>
             </div>
-        </div>
-        <div class="row row-fluid">
-            <div class="span12 offset11">
-                <a href="http://humanstxt.org/" target="_blank">
-                    <img src="{{ STATIC_URL }}img/humanstxt-isolated-blank.gif" alt="humanstxt.org" />
-                </a>
+            <div class="span2">
+                <h4>{% trans "Other" %}</h4>
+                <p>
+                    <a href="/humans.txt">{% trans "We are humans" %}</a>
+                </p>
+            </div>
+            <div class="span2">
+                <h4>{% trans "Account" %}</h4>
+                {% if request.user.is_authenticated %}
+                <p>
+                    <a href="/settings/">{% trans "Settings" %}</a>
+                </p>
+                {% endif %}
+                <p>
+                    <a href="{% url auth_password_reset %}">{% trans "Forgot password" %}</a>
+                </p>
+                <p>
+                    <a href="{% url registration_register %}">{% trans "Register" %}</a>
+                </p>
+                {% if request.user.is_authenticated %}
+                <p>
+                    <a href="{% url auth_logout %}">{% trans "Logout" %}</a>
+                </p>                
+                {% endif %}
+            </div>
+            <div class="span2">
+                <h4>{% trans "Standard" %}</h4>
+                <p>
+                    <a href="http://humanstxt.org/" target="_blank">
+                        <img src="{{ STATIC_URL }}img/humanstxt-isolated-blank.gif" alt="humanstxt.org" />
+                    </a>
+                    <a href="http://www.python.org/dev/peps/pep-0008/" target="_blank">
+                        <img src="{{ STATIC_URL }}img/python-logo.gif" alt="Python PEP8" height="40px" width="100px" />
+                    </a>
+                </p>
             </div>
         </div>
     </div>

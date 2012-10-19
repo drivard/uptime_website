@@ -1,5 +1,6 @@
 import datetime
 from django import template
+from django.contrib.sites.models import Site
 
 '''
 
@@ -22,3 +23,18 @@ class YearNode(template.Node):
 @register.tag
 def year(parser, token):
     return YearNode()
+
+    
+class DomainNode(template.Node):
+    def __init__(self):
+        current_site = Site.objects.get_current()
+        self.site = current_site.name
+
+        
+    def render(self, context):        
+        return self.site
+
+        
+@register.tag
+def domain(parser, token):
+    return DomainNode()

@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </a>
-            <a class="brand orange" href="/">Uptimes</a>
+            <a class="brand" href="/">Uptimes</a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li class="active"><a href="/">{% trans "Home" %}</a></li>
@@ -26,24 +26,18 @@
                         </ul>
                     </li>
                     {% if request.user.is_authenticated %}
-                    <li><a href="/settings/">{% trans "Account" %}</a></li>
+                        <li class="pull-right"><a href="/settings/">{% trans "Settings" %}</a></li>
                     {% endif %}
-                    <li><a href="/contact/">{% trans "Contact" %}</a></li>
-                    <li><a href="/about/">{% trans "About" %}</a></li>
                 </ul>
                 {% if request.user.is_authenticated %}
                 <form class="navbar-form pull-right" method="post" action="/accounts/logout/">
-                    <button type="submit" class="btn btn-danger"><i class="icon-user icon-white"></i>&nbsp;{% trans "Logout" %}</button>
+                    <button type="submit" class="btn btn-foxtrot"><i class="icon-user icon-white"></i>&nbsp;{% trans "Logout" %}</button>
                     {% csrf_token %}
                 </form>
                 {% else %}
-                <form class="navbar-form pull-right" method="post" action="/accounts/login/">
-                    <input name="username" class="span2" type="text" placeholder="Username" />
-                    <input name="password" class="span2" type="password" placeholder="Password" />
-                    <button type="submit" class="btn btn-warning"><i class="icon-user icon-white"></i>&nbsp;{% trans "Log in" %}</button>
-                    <a href="/accounts/register/" class="btn btn-success"><i class="icon-user icon-white"></i>&nbsp;{% trans "Register" %}</a>
-                    {% csrf_token %}
-                </form>
+                    {% block loginform %}
+                        {% include "registration/login_form.html" %}
+                    {% endblock %}
                 {% endif %}
             </div>
         </div>

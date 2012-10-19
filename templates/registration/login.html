@@ -1,16 +1,39 @@
 {% extends "base.html" %}
 {% load i18n %}
 
+{% block title %}{% trans "Log in" %}{% endblock %}
+
 {% block content %}
-    <form method="post" action=".">
-        {{ form.as_p }}
-        <input type="hidden" name="next" value="{{ next }}" />
-        <button type="submit" class="btn btn-primary">
-            <i class="icon-user icon-white"></i>
-            &nbsp;{% trans 'Log in' %}
-        </button>
-        {% csrf_token %}
-    </form>
-    <p>{% trans "Forgot password" %}? <a href="{% url auth_password_reset %}">{% trans "Reset it" %}</a>!</p>
-    <p>{% trans "Not member" %}? <a href="{% url registration_register %}">{% trans "Register" %}</a>!</p>
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <p>
+                    {% if form.errors %}
+                        <div class="errorlist alert alert-error">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {% trans "Log in is incorrect." %}
+                        </div>
+                    {% endif %}
+                    <!-- <form method="post" action=".">
+                        <p>
+                            <label for="id_username">Username:</label>
+                            <input id="id_username" type="text" name="username" maxlength="30">
+                            </p>
+                        <p>
+                            <label for="id_password">Password:</label>
+                            <input type="password" name="password" id="id_password">
+                        </p>
+                        <input type="hidden" name="next" value="">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="icon-user icon-white"></i>
+                            &nbsp;{% trans 'Log in' %}
+                        </button>
+                        {% csrf_token %}
+                    </form> -->
+                    <p>{% trans "Forgot password" %}? <a href="{% url auth_password_reset %}">{% trans "Reset it" %}</a>!</p>
+                    <p>{% trans "Not member" %}? <a href="{% url registration_register %}">{% trans "Register" %}</a>!</p>
+                </p>
+            </div>
+        </div>
+    </div>
 {% endblock %}

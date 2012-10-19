@@ -1,0 +1,8 @@
+{% load i18n %}
+<form class="navbar-form pull-right" method="post" action="/accounts/login/">
+    <input name="username" class="span2" type="text" placeholder="Username" />
+    <input name="password" class="span2" type="password" placeholder="Password" />
+    <button type="submit" class="btn btn-kilo"><i class="icon-user"></i>&nbsp;{% trans "Log in" %}</button>
+    <a href="/accounts/register/" class="btn btn-kilo"><i class="icon-heart"></i>&nbsp;{% trans "Register" %}</a>
+    {% csrf_token %}
+</form>

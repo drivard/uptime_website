@@ -2,5 +2,13 @@
 {% load i18n %}
 
 {% block content %}
-    {% trans "Logged out" %}
+<div class="alert alert-success">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+{% trans "Logged out" %}
+</div>
+<p>
+    {% blocktrans with site.name as site %}
+    Thank you for visiting {{ site }}!
+    {% endblocktrans %}
+</p>
 {% endblock %}
