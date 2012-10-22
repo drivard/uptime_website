@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic.simple import direct_to_template
+from django.views.generic import RedirectView
 
 from django.contrib import admin
 admin.autodiscover()
@@ -25,6 +26,18 @@ urlpatterns = patterns('uptimes.views',
     # robots.txt
     url(r'^robots\.txt$', direct_to_template,
         {'template': 'robots.txt', 'mimetype': 'text/plain'}),
+
+)
+
+
+'''
+
+The website URLs
+
+'''
+urlpatterns += patterns('accounts.views',
+    # settings
+    url(r'^settings/', 'settings'),
 )
 
 
@@ -37,6 +50,16 @@ urlpatterns += patterns('',
     # registration urls
     # url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
     url(r'^accounts/', include('registration.backends.default.urls')),
+)
+
+
+'''
+
+Redirection
+
+'''
+urlpatterns += patterns('', 
+    (r'^accounts/profile/', RedirectView.as_view(url='/settings/')),
 )
 
 

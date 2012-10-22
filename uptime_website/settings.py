@@ -117,6 +117,8 @@ TEMPLATE_DIRS = (
     #
     # os.path.join(PROJECT_DIR, "<appname>/templates/"),
     os.path.join(PARENTDIR, "templates/"), # common templates
+    os.path.join(PARENTDIR, "uptimes/templates/"),
+    os.path.join(PARENTDIR, "accounts/templates/"),
 )
 
 INSTALLED_APPS = (
@@ -177,4 +179,4 @@ DEFAULT_FROM_EMAIL = 'noreply@localhost'
 
 # Default redirection after login
 # 
-LOGIN_REDIRECT_URL = '/'
+# LOGIN_REDIRECT_URL = '/'
