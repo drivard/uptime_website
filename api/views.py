@@ -1,8 +1,9 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext as rc
 from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_exempt
 
-@csrf_protect
+@csrf_exempt
 def read(request):
     '''
     

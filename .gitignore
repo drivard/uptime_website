@@ -31,3 +31,6 @@ static/
 
 # SQlite DB
 *.sqlite*
+
+# IDE
+.idea/
