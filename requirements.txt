@@ -1,4 +1,3 @@
 # plugins for the website
 django-registration
 south
-django-admin-tools
