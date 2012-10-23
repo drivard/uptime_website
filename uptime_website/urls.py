@@ -43,6 +43,19 @@ urlpatterns += patterns('accounts.views',
 
 '''
 
+API to get and the uptime results
+
+'''
+urlpatterns += patterns('api.views', 
+    # registration urls
+    # url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
+    url(r'^api/read/', 'read'),
+    url(r'^api/', 'index'),
+)
+
+
+'''
+
 Django-registration plugins
 
 '''

@@ -119,6 +119,7 @@ TEMPLATE_DIRS = (
     os.path.join(PARENTDIR, "templates/"), # common templates
     os.path.join(PARENTDIR, "uptimes/templates/"),
     os.path.join(PARENTDIR, "accounts/templates/"),
+    os.path.join(PARENTDIR, "api/templates/"),
 )
 
 INSTALLED_APPS = (
